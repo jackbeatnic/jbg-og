@@ -1,0 +1,41 @@
+JBG-OG — karty share 1200×630 (Open Graph / X)
+==============================================
+
+Repo:  https://github.com/jackbeatnic/jbg-og
+Live:  https://jackbeatnic.github.io/jbg-og/
+
+To NIE jest strona (jackbeatnic.github.io), NIE są to miniatury (jbg-present)
+i NIE są to oryginały mint (jb-nft-assets).
+
+Dlaczego osobne repo: tysiące JPG w assets/og/ zabiły GitHub Pages WWW (~1 GB).
+
+
+JEDNA KARTA
+-----------
+  cd ~/jb_nft/www
+  python3 generuj_og_preview.py --nft-only --kolekcja avalanche_nature_stories --token 1496
+
+  cd ~/jb_nft/jbg-og
+  git add avalanche-nature-stories-1496.jpg
+  git commit -m "og: NS 1496"
+  git push
+
+  Landing galerii dostaje:
+    og:image = https://jackbeatnic.github.io/jbg-og/avalanche-nature-stories-1496.jpg
+
+
+WSZYSTKIE BRAKUJĄCE
+-------------------
+  cd ~/jb_nft/www
+  python3 generuj_og_preview.py --og-all --skip-existing
+
+  Potem push jbg-og (JPG) i pages-live (HTML):
+    python3 ~/jb_nft/listing/publish_jbg_og.py
+    python3 ~/jb_nft/listing/publish_pages_live.py --message "pages-live: OG → jbg-og"
+
+
+NIE
+---
+  ✗ wrzucać kart do jackbeatnic.github.io/assets/og/
+  ✗ wrzucać kart do jbg-present/ (tam tylko WebP thumb/view)
+  ✗ używać surowego zdjęcia NFT jako og:image (zły kadr, wygląda jak błąd)
